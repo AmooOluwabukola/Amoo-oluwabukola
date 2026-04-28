@@ -3,7 +3,7 @@ import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Mail, Linkedin, Github, MapPin } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin, Loader2 } from "lucide-react";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -28,7 +28,6 @@ export function Contact() {
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
- 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +40,7 @@ export function Contact() {
         EMAILJS_PUBLIC_KEY,
       );
       setStatus("success");
+      setTimeout(() => setStatus("idle"), 4000);
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch {
       setStatus("error");
@@ -49,7 +49,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-20 px-4 bg-muted/30">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -122,14 +122,33 @@ export function Contact() {
                     required
                   />
                 </div>
+               
                 <Button
                   type="submit"
-                  className="w-full bg-[#4169E1] hover:bg-[#4169E1]/90"
+                  disabled={status === "sending"}
+                  className="w-full bg-[#4169E1] hover:bg-[#4169E1]/90 disabled:opacity-70 flex items-center justify-center"
                 >
-                  Send Message
+                  {status === "sending" ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
                 </Button>
               </form>
+              {status === "success" && (
+                <p className="text-green-600 text-sm text-center">
+                  Message sent successfully!
+                </p>
+              )}
 
+              {status === "error" && (
+                <p className="text-red-600 text-sm text-center">
+                  Something went wrong. Please try again.
+                </p>
+              )}
             </Card>
           </motion.div>
 

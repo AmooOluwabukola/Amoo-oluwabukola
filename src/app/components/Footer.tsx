@@ -3,9 +3,9 @@ import { Github, Linkedin, Mail } from "lucide-react";
 export function Footer() {
   return (
     <footer className="py-8 px-4 border-t">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-[12px]  md:text:sm text-muted-foreground">
             © {new Date().getFullYear()} Oluwabukola Amoo. All rights reserved.
           </p>
           <div className="flex gap-4">

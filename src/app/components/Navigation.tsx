@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import logo from '../../assets/logo.svg'
+import logo from "../../assets/logo.svg";
+import { AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,7 +41,7 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="text-xl font-medium">
-            <img src={logo} alt="" className="w-20 " />
+            <img src={logo} alt="" className="md:w-20 w-12" />
             {/* <span className="text-[#4169E1]">Oluwabukola</span> Amoo */}
           </a>
 
@@ -65,19 +67,27 @@ export function Navigation() {
           </Button>
         </div>
 
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-2">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-2 text-muted-foreground hover:text-[#4169E1] hover:bg-muted/50 rounded-lg transition-colors"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        )}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="md:hidden mt-4 pb-4 space-y-2 bg-white"
+            >
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.href)}
+                  className="block w-full text-left px-4 py-2 text-muted-foreground hover:text-[#4169E1] hover:bg-muted/50 rounded-lg transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

@@ -1,12 +1,12 @@
 import { motion } from "motion/react";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { Button } from "./ui/button";
-import resume from "../../assets/resume.pdf"; // adjust path if needed
+import resume from "../../assets/ Oluwabukola Grace.pdf"; 
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-br from-[#4169E1]/5 to-transparent">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="min-h-screen flex items-center justify-center px-4 py-10 bg-gradient-to-br from-[#4169E1]/5 to-transparent">
+      <div className="max-w-7xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
