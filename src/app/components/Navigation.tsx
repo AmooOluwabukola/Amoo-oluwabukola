@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
 import logo from "../../assets/logo.svg";
 import { AnimatePresence } from "motion/react";
 import { motion } from "motion/react";
@@ -57,14 +56,12 @@ export function Navigation() {
             ))}
           </div>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
+          <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={`md:hidden "text-gray-700"}`}
           >
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </Button>
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
 
         <AnimatePresence>
