@@ -5,6 +5,7 @@ import { ExternalLink, FileText } from "lucide-react";
 import { Badge } from "./ui/badge";
 import ewaitersImg from "../../assets/ewaiter.png";
 import egifterImg from "../../assets/egifter.png";
+import taiyePortImg from '../../assets/taiye-port.png'
 
 export function Projects() {
   // const projects = [
@@ -50,6 +51,7 @@ export function Projects() {
       technologies: [
         "React",
         "TypeScript",
+        "Tailwind CSS",
         "Node.js",
         "NestJs",
         "MongoDB",
@@ -68,6 +70,15 @@ export function Projects() {
       docUrl: "#", // leave empty or remove button if no doc yet
       image: egifterImg,
     },
+    {
+  title: "Taiye Robinson Portfolio",
+  description:
+    "A modern, responsive portfolio website designed in Figma and developed using React, showcasing projects and experience with smooth animations, clean UI, and EmailJS integration for seamless user contact.",
+  technologies: [  "Figma","React", "TypeScript", "Tailwind CSS", "EmailJS"],
+  liveUrl: "https://taiye-robinson.vercel.app/",
+  docUrl: "https://github.com/AmooOluwabukola/Taiye-Portfolio",
+  image: taiyePortImg,
+}
   ];
   return (
     <section id="projects" className="py-20 px-4">
@@ -88,7 +99,7 @@ export function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
