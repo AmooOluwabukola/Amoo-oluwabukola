@@ -5,7 +5,7 @@ import { ExternalLink, FileText } from "lucide-react";
 import { Badge } from "./ui/badge";
 import ewaitersImg from "../../assets/ewaiter.png";
 import egifterImg from "../../assets/egifter.png";
-import taiyePortImg from '../../assets/taiye-port.png'
+import taiyePortImg from "../../assets/taiye-port.png";
 
 export function Projects() {
   // const projects = [
@@ -67,18 +67,18 @@ export function Projects() {
         "An e-gifting platform where I collaborated on the backend, building authentication flows, gift page creation and updates, and user settings, ensuring secure and scalable API design.",
       technologies: ["Node.js", "NestJS", "MongoDB"],
       liveUrl: "https://egifter.ng/",
-      docUrl: "#", // leave empty or remove button if no doc yet
+      docUrl: "#",
       image: egifterImg,
     },
     {
-  title: "Taiye Robinson Portfolio",
-  description:
-    "A modern, responsive portfolio website designed in Figma and developed using React, showcasing projects and experience with smooth animations, clean UI, and EmailJS integration for seamless user contact.",
-  technologies: [  "Figma","React", "TypeScript", "Tailwind CSS", "EmailJS"],
-  liveUrl: "https://taiye-robinson.vercel.app/",
-  docUrl: "https://github.com/AmooOluwabukola/Taiye-Portfolio",
-  image: taiyePortImg,
-}
+      title: "Taiye Robinson Portfolio",
+      description:
+        "A modern, responsive portfolio website designed in Figma and developed using React, showcasing projects and experience with smooth animations, clean UI, and EmailJS integration for seamless user contact.",
+      technologies: ["Figma", "React", "TypeScript", "Tailwind CSS", "EmailJS"],
+      liveUrl: "https://taiye-robinson.vercel.app/",
+      docUrl: "https://github.com/AmooOluwabukola/Taiye-Portfolio",
+      image: taiyePortImg,
+    },
   ];
   return (
     <section id="projects" className="py-20 px-4">
@@ -161,6 +161,43 @@ export function Projects() {
             </motion.div>
           ))}
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-20"
+        >
+          <Card className="p-8 border-2 border-[#4169E1]/10 bg-gradient-to-br from-[#4169E1]/5 to-transparent">
+            <div className="max-w-3xl mx-auto text-center">
+              <h3 className="text-2xl md:text-3xl mb-4">Currently Learning</h3>
+
+              <p className="text-muted-foreground mb-6">
+                I'm continuously improving my frontend and backend engineering
+                skills, focusing on building scalable, maintainable, and
+                production-ready applications.
+              </p>
+
+              <div className="flex flex-wrap justify-center gap-3">
+                {[
+                  "System Design",
+                  "Scalable Backend Architecture",
+                  "Advanced TypeScript",
+                  "Technical Writing for Optimal Documentation",
+                  "Performance Optimization",
+                  "Clean Architecture",
+                ].map((item) => (
+                  <Badge
+                    key={item}
+                    className="px-4 py-2 text-sm bg-[#4169E1]/10 text-[#4169E1] hover:bg-[#4169E1]/20 border-none"
+                  >
+                    {item}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );

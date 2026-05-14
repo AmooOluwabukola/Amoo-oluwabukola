@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { Button } from "./ui/button";
-import resume from "../../assets/ Oluwabukola Grace.pdf";
+import resume from "../../assets/Amoo Oluwabukola Grace cv.pdf";
 import profileImg from "../../assets/bukola.jpg";
 
 export function Hero() {
@@ -27,12 +27,12 @@ export function Hero() {
               Hi, I'm <span className="text-[#4169E1]">Oluwabukola Amoo</span>
             </h1>
             <h2 className="md:mb-6 mb-2 text-sm md:text-2xl lg:text-3xl text-muted-foreground">
-              Software Developer
+              Full-Stack Developer | React, TypeScript, Node.js & NestJS{" "}
             </h2>
             <p className="mb-8 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-              I build scalable web applications and intuitive user experiences.
-              Passionate about clean code, modern technologies, and solving
-              complex problems.
+              Building scalable web applications and backend systems with a
+              focus on performance and user experience. Passionate about
+              crafting clean, efficient code and delivering impactful solutions.
             </p>
             <div className="flex flex-wrap gap-4 justify-center items-center">
               {/* Get in Touch */}
